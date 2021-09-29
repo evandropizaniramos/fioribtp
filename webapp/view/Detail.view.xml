@@ -1,0 +1,76 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:form="sap.ui.layout.form" controllerName="dexco.ui5products.controller.Detail" displayBlock="true">
+    <Page id="pageDetail" title="{i18n>title}" showFooter="true">
+        <content>
+            <form:Form editable="{control>/Enabled}">
+                <form:layout>
+                    <form:ResponsiveGridLayout/>
+                </form:layout>
+                <form:formContainers>
+                    <form:FormContainer title="{i18n>titleDetails}">
+                        <form:formElements>
+                            <form:FormElement label="{i18n>lblProductID}">
+                                <form:fields>
+                                    <Input value="{ProductID}" description="{ProductName}" width="100%" editable="{control>/Enabled}"/>
+                                </form:fields>
+                            </form:FormElement>
+                            <form:FormElement label="{i18n>lblSupplierID}">
+                                <form:fields>
+                                    <Input value="{SupplierID}" width="100%" editable="{control>/Enabled}"/>
+                                </form:fields>
+                            </form:FormElement>
+                            <form:FormElement label="{i18n>lblCategoryID}">
+                                <form:fields>
+                                    <Input value="{CategoryID}" width="100%" editable="{control>/Enabled}"/>
+                                </form:fields>
+                            </form:FormElement>
+                            <form:FormElement label="{i18n>lblQuantityPerUnit}">
+                                <form:fields>
+                                    <Input value="{QuantityPerUnit}" width="100%" editable="{control>/Enabled}"/>
+                                </form:fields>
+                            </form:FormElement>
+                            <form:FormElement label="{i18n>lblUnitPrice}">
+                                <form:fields>
+                                    <Input value="{UnitPrice}" width="100%" editable="{control>/Enabled}"/>
+                                </form:fields>
+                            </form:FormElement>
+                            <form:FormElement label="{i18n>lblUnitsInStock}">
+                                <form:fields>
+                                    <Input value="{UnitsInStock}" width="100%" editable="{control>/Enabled}"/>
+                                </form:fields>
+                            </form:FormElement>
+                            <form:FormElement label="{i18n>lblUnitsOnOrder}">
+                                <form:fields>
+                                    <Input value="{UnitsOnOrder}" width="100%" editable="{control>/Enabled}"/>
+                                </form:fields>
+                            </form:FormElement>
+                            <form:FormElement label="{i18n>lblReorderLevel}">
+                                <form:fields>
+                                    <Input value="{ReorderLevel}" width="100%" editable="{control>/Enabled}"/>
+                                </form:fields>
+                            </form:FormElement>
+                            <form:FormElement label="{i18n>lblDiscontinued}">
+                                <form:fields>
+                                    <CheckBox selected="{Discontinued}" editable="{control>/Enabled}"/>
+                                </form:fields>
+                            </form:FormElement>
+                        </form:formElements>
+                    </form:FormContainer>
+                </form:formContainers>
+            </form:Form>
+        </content>
+        <footer>
+            <OverflowToolbar>
+                <ToolbarSpacer/>
+                <Button text="{i18n>btnSave}" type="Accept" press="onSave"/>
+                <Button text="{i18n>btnCancel}" type="Reject" press="onCancel"/>
+            </OverflowToolbar>
+        </footer>
+    <subHeader>
+        <Bar>
+            <contentRight>
+                <Button text="{i18n>btnEdit}" press="onEdit"/>
+            </contentRight>
+        </Bar>
+    </subHeader>
+    </Page>
+</mvc:View>

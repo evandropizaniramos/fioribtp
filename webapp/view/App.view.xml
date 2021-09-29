@@ -1,16 +1,6 @@
-<mvc:View
-    controllerName="dexco.ui5products.controller.App"
-    xmlns:mvc="sap.ui.core.mvc"
-    displayBlock="true"
-    xmlns="sap.m"
->
-	<Shell id="shell">
-		<App id="app">
-			<pages>
-				<Page id="page" title="{i18n>title}">
-					<content />
-				</Page>
-			</pages>
-		</App>
-	</Shell>
+<mvc:View xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m" controllerName="dexco.ui5products.controller.App" displayBlock="true">
+    <Shell id="shell">
+        <App id="app"/>
+    </Shell>
 </mvc:View>

@@ -19,6 +19,10 @@
                     "odataVersion": "2.0",
                     "localUri": "localService/metadata.xml"
                 }
+            },
+            "control": {
+                "uri": "/model/Control.json",
+                "type": "JSON"
             }
         },
         "crossNavigation": {
@@ -84,6 +88,10 @@
             "": {
                 "dataSource": "mainService",
                 "preload": true
+            },
+            "control": {
+                "dataSource": "control",
+                "type": "sap.ui.model.json.JSONModel"
             }
         },
         "resources": {
@@ -105,20 +113,34 @@
             },
             "routes": [
                 {
-                    "name": "RouteApp",
-                    "pattern": "RouteApp",
+                    "name": "ToList",
+                    "pattern": "",
                     "target": [
-                        "TargetApp"
+                        "TargetList"
+                    ]
+                },
+                {
+                    "name": "ToDetail",
+                    "pattern": "ToDetail/{ProductID}",
+                    "target": [
+                        "TargetDetail"
                     ]
                 }
             ],
             "targets": {
-                "TargetApp": {
+                "TargetList": {
                     "viewType": "XML",
                     "transition": "slide",
                     "clearControlAggregation": false,
-                    "viewId": "App",
-                    "viewName": "App"
+                    "viewId": "List",
+                    "viewName": "List"
+                },
+                "TargetDetail": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "Detail",
+                    "viewName": "Detail"
                 }
             }
         }

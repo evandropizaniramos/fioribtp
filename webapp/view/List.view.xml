@@ -1,0 +1,84 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m" controllerName="dexco.ui5products.controller.List" displayBlock="true">
+    <Page id="pageList" title="{i18n>title}" showFooter="true">
+        <content>
+            <Table noDataText="{i18n>noProductsFound}" items="{/Products}">
+                <items>
+                    <ColumnListItem type="Navigation" press="onListItemPress">
+                        <cells>
+                            <ObjectIdentifier title="{ProductName}" text="{ProductID}"/>
+                            <Text text="{SupplierID}"/>
+                            <Text text="{CategoryID}"/>
+                            <Text text="{QuantityPerUnit}"/>
+                            <Text text="{UnitPrice}"/>
+                            <Text text="{UnitsInStock}"/>
+                            <Text text="{UnitsOnOrder}"/>
+                            <Text text="{ReorderLevel}"/>
+                            <ObjectStatus text="{= !(${Discontinued}) ? ${i18n>txtValid} : ${i18n>txtDiscontinued} }" icon="{= !(${Discontinued}) ? 'sap-icon://sys-enter-2' : 'sap-icon://error' }" state="{= !(${Discontinued}) ? 'Success' : 'Error' }"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+                <columns>
+                    <Column>
+                        <header>
+                            <Label text="{i18n>lblProduct}"/>
+                        </header>
+                    </Column>
+                    <Column demandPopin="true" minScreenWidth="Tablet">
+                        <header>
+                            <Label text="{i18n>lblSupplierID}"/>
+                        </header>
+                    </Column>
+                    <Column demandPopin="true" minScreenWidth="Tablet">
+                        <header>
+                            <Label text="{i18n>lblCategoryID}"/>
+                        </header>
+                    </Column>
+                    <Column demandPopin="true" minScreenWidth="Tablet">
+                        <header>
+                            <Label text="{i18n>lblQuantityPerUnit}"/>
+                        </header>
+                    </Column>
+                    <Column hAlign="End" demandPopin="true" minScreenWidth="Tablet">
+                        <header>
+                            <Label text="{i18n>lblUnitPrice}"/>
+                        </header>
+                    </Column>
+                    <Column hAlign="End" demandPopin="true" minScreenWidth="Tablet">
+                        <header>
+                            <Label text="{i18n>lblUnitsInStock}"/>
+                        </header>
+                    </Column>
+                    <Column hAlign="End" minScreenWidth="Tablet">
+                        <header>
+                            <Label text="{i18n>lblUnitsOnOrder}"/>
+                        </header>
+                    </Column>
+                    <Column hAlign="End" minScreenWidth="Tablet">
+                        <header>
+                            <Label text="{i18n>lblReorderLevel}"/>
+                        </header>
+                    </Column>
+                    <Column hAlign="Center">
+                        <header>
+                            <Label text="{i18n>lblDiscontinued}"/>
+                        </header>
+                    </Column>
+                </columns>
+                <headerToolbar>
+                    <OverflowToolbar width="100%">
+                        <content>
+                            <Title text="{i18n>lblProducts}"/>
+                        </content>
+                    </OverflowToolbar>
+                </headerToolbar>
+            </Table>
+        </content>
+        <footer>
+            <OverflowToolbar>
+                <ToolbarSpacer/>
+                <Button text="{i18n>btnCreate}" type="Accept" press="onCreate"/>
+            </OverflowToolbar>
+        </footer>
+    </Page>
+</mvc:View>
