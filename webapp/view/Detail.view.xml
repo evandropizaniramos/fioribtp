@@ -1,5 +1,8 @@
-<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:form="sap.ui.layout.form" controllerName="dexco.ui5products.controller.Detail" displayBlock="true">
-    <Page id="pageDetail" title="{i18n>title}" showFooter="true">
+<mvc:View xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:form="sap.ui.layout.form" controllerName="dexco.ui5products.controller.Detail" displayBlock="true"
+    xmlns:core="sap.ui.core">
+    <Page id="pageDetail" title="{i18n>title}" showFooter="{control>/ShowFooter}">
         <content>
             <form:Form editable="{control>/Enabled}">
                 <form:layout>
@@ -10,27 +13,36 @@
                         <form:formElements>
                             <form:FormElement label="{i18n>lblProductID}">
                                 <form:fields>
-                                    <Input value="{ProductID}" description="{ProductName}" width="100%" editable="{control>/Enabled}"/>
+                                    <Input value="{ProductID}" description="{ProductName}" width="100%" editable="{control>/Enabled}" required="true" change="onChange"/>
+                                </form:fields>
+                            </form:FormElement>
+                            <form:FormElement label="{i18n>lblProductName}" visible="{control>/Enabled}">
+                                <form:fields>
+                                    <Input value="{ProductName}" width="100%" editable="{control>/Enabled}" required="true" change="onChange"/>
                                 </form:fields>
                             </form:FormElement>
                             <form:FormElement label="{i18n>lblSupplierID}">
                                 <form:fields>
-                                    <Input value="{SupplierID}" width="100%" editable="{control>/Enabled}"/>
+                                    <Input value="{SupplierID}" description="{CompanyName}" width="100%" editable="{control>/Enabled}" showValueHelp="true" valueHelpOnly="true" valueHelpRequest="onSupplierValueHelp" required="true" change="onChange"/>
                                 </form:fields>
                             </form:FormElement>
                             <form:FormElement label="{i18n>lblCategoryID}">
                                 <form:fields>
-                                    <Input value="{CategoryID}" width="100%" editable="{control>/Enabled}"/>
+                                    <Input value="{CategoryID}" width="100%" editable="{control>/Enabled}" showSuggestion="true" suggestionItems="{/Categories}" required="true" change="onChange">
+                                        <suggestionItems>
+                                            <core:ListItem key="{CategoryID}" text="{CategoryID}" additionalText="{CategoryName}"/>
+                                        </suggestionItems>
+                                    </Input>
                                 </form:fields>
                             </form:FormElement>
                             <form:FormElement label="{i18n>lblQuantityPerUnit}">
                                 <form:fields>
-                                    <Input value="{QuantityPerUnit}" width="100%" editable="{control>/Enabled}"/>
+                                    <Input value="{QuantityPerUnit}" width="100%" editable="{control>/Enabled}" required="true" change="onChange"/>
                                 </form:fields>
                             </form:FormElement>
                             <form:FormElement label="{i18n>lblUnitPrice}">
                                 <form:fields>
-                                    <Input value="{UnitPrice}" width="100%" editable="{control>/Enabled}"/>
+                                    <Input value="{path: 'UnitPrice', type: 'sap.ui.model.type.Float'}" width="100%" editable="{control>/Enabled}" required="true" change="onChange"/>
                                 </form:fields>
                             </form:FormElement>
                             <form:FormElement label="{i18n>lblUnitsInStock}">
@@ -60,17 +72,18 @@
         </content>
         <footer>
             <OverflowToolbar>
+                <Button id="btnMP" visible="{=!!${message>/}.length}" icon="{ path: 'message>/', formatter: '.buttonIconFormatter' }" type="{ path: 'message>/', formatter: '.buttonTypeFormatter' }" text= "{path: 'message>/', formatter: '.highestSeverityMessages' }" press=".handleMessagePopoverPress" ariaHasPopup="Dialog"/>
                 <ToolbarSpacer/>
                 <Button text="{i18n>btnSave}" type="Accept" press="onSave"/>
                 <Button text="{i18n>btnCancel}" type="Reject" press="onCancel"/>
             </OverflowToolbar>
         </footer>
-    <subHeader>
-        <Bar>
-            <contentRight>
-                <Button text="{i18n>btnEdit}" press="onEdit"/>
-            </contentRight>
-        </Bar>
-    </subHeader>
+        <subHeader>
+            <Bar>
+                <contentRight>
+                    <Button text="{i18n>btnEdit}" press="onEdit" visible="{control>/ShowEdit}"/>
+                </contentRight>
+            </Bar>
+        </subHeader>
     </Page>
 </mvc:View>

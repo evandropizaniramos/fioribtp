@@ -87,7 +87,10 @@
             },
             "": {
                 "dataSource": "mainService",
-                "preload": true
+                "preload": true,
+                "settings": {
+                    "defaultBindingMode": "TwoWay"
+                }
             },
             "control": {
                 "dataSource": "control",
@@ -122,6 +125,13 @@
                 {
                     "name": "ToDetail",
                     "pattern": "ToDetail/{ProductID}",
+                    "target": [
+                        "TargetDetail"
+                    ]
+                },
+                {
+                    "name": "ToDetailCreate",
+                    "pattern": "ToDetail",
                     "target": [
                         "TargetDetail"
                     ]

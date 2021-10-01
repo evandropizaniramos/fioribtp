@@ -1,0 +1,6 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <SelectDialog noDataText="{i18n>txtNoSupplier}" title="{i18n>titleSupplier}" search=".onSearchSupplier" confirm=".onConfirmSupplier" cancel=".onCancelSupplier" items="{/Suppliers}">
+        <StandardListItem title="{CompanyName}" description="{SupplierID}" type="Active"/>
+    </SelectDialog>
+</core:FragmentDefinition>

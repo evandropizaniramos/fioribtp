@@ -15,6 +15,20 @@ sap.ui.define([
 
             attachRoute: function (sRoute, fRouteMatched) {
                 this.getRouter().getRoute(sRoute).attachPatternMatched(fRouteMatched, this);
+            },
+
+            getText: function (sText, aArgs) {
+                var oModel = this.getOwnerComponent().getModel("i18n");
+
+                if (!oModel) {
+                    oModel = new sap.ui.model.resource.ResourceModel({
+                        bundleName: "dexco.ui5products.i18n.i18n"
+                    });
+
+                    this.getOwnerComponent().setModel(oModel, "i18n");
+                }
+
+                return oModel.getResourceBundle().getText(sText, aArgs);
             }
             
 		});

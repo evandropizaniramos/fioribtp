@@ -24,6 +24,10 @@ sap.ui.define([
                 this.getRouter().navTo("ToDetail", {
                     ProductID: oObject.ProductID
                 });
+            },
+
+            onCreate: function (oEvent) {
+                this.getRouter().navTo("ToDetailCreate");
             }
 		});
 	});

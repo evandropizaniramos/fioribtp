@@ -1,3 +1,6 @@
 {
-    "Enabled": false
+    "Enabled": false,
+    "ShowEdit": true,
+    "ShowFooter": false,
+    "Operation": "display"
 }
