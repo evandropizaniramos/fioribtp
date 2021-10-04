@@ -2,7 +2,7 @@
     xmlns="sap.m" controllerName="dexco.ui5products.controller.List" displayBlock="true">
     <Page id="pageList" title="{i18n>title}" showFooter="true">
         <content>
-            <Table noDataText="{i18n>noProductsFound}" items="{/Products}">
+            <Table noDataText="{i18n>noProductsFound}" items="{/Products}" id="tableProducts">
                 <items>
                     <ColumnListItem type="Navigation" press="onListItemPress">
                         <cells>
