@@ -1,13 +1,13 @@
 sap.ui.define([
-	"sap/ui/core/mvc/Controller"
+    "sap/ui/core/mvc/Controller"
 ],
 	/**
 	 * @param {typeof sap.ui.core.mvc.Controller} Controller
 	 */
-	function (Controller) {
-		"use strict";
+    function (Controller) {
+        "use strict";
 
-		return Controller.extend("dexco.ui5products.controller.BaseController", {
+        return Controller.extend("dexco.ui5products.controller.BaseController", {
 
             getRouter: function () {
                 return sap.ui.core.UIComponent.getRouterFor(this);
@@ -30,6 +30,6 @@ sap.ui.define([
 
                 return oModel.getResourceBundle().getText(sText, aArgs);
             }
-            
-		});
-	});
+
+        });
+    });

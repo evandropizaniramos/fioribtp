@@ -13,7 +13,7 @@
                         <form:formElements>
                             <form:FormElement label="{i18n>lblProductID}">
                                 <form:fields>
-                                    <Input value="{ProductID}" description="{ProductName}" width="100%" editable="{control>/Enabled}" required="true" change="onChange"/>
+                                    <Input value="{path: 'ProductID', type: 'sap.ui.model.type.Integer'}" description="{ProductName}" width="100%" editable="{control>/Enabled}" required="true" change="onChange"/>
                                 </form:fields>
                             </form:FormElement>
                             <form:FormElement label="{i18n>lblProductName}" visible="{control>/Enabled}">
@@ -23,12 +23,12 @@
                             </form:FormElement>
                             <form:FormElement label="{i18n>lblSupplierID}">
                                 <form:fields>
-                                    <Input value="{SupplierID}" description="{CompanyName}" width="100%" editable="{control>/Enabled}" showValueHelp="true" valueHelpOnly="true" valueHelpRequest="onSupplierValueHelp" required="true" change="onChange"/>
+                                    <Input value="{path: 'SupplierID', type: 'sap.ui.model.type.Integer'}" description="{CompanyName}" width="100%" editable="{control>/Enabled}" showValueHelp="true" valueHelpOnly="true" valueHelpRequest="onSupplierValueHelp" required="true" change="onChange"/>
                                 </form:fields>
                             </form:FormElement>
                             <form:FormElement label="{i18n>lblCategoryID}">
                                 <form:fields>
-                                    <Input value="{CategoryID}" width="100%" editable="{control>/Enabled}" showSuggestion="true" suggestionItems="{/Categories}" required="true" change="onChange">
+                                    <Input value="{path: 'CategoryID', type: 'sap.ui.model.type.Integer'}" width="100%" editable="{control>/Enabled}" showSuggestion="true" suggestionItems="{/Categories}" required="true" change="onChange">
                                         <suggestionItems>
                                             <core:ListItem key="{CategoryID}" text="{CategoryID}" additionalText="{CategoryName}"/>
                                         </suggestionItems>
@@ -47,17 +47,17 @@
                             </form:FormElement>
                             <form:FormElement label="{i18n>lblUnitsInStock}">
                                 <form:fields>
-                                    <Input value="{UnitsInStock}" width="100%" editable="{control>/Enabled}"/>
+                                    <Input value="{path: 'UnitsInStock', type: 'sap.ui.model.type.Integer'}" width="100%" editable="{control>/Enabled}"/>
                                 </form:fields>
                             </form:FormElement>
                             <form:FormElement label="{i18n>lblUnitsOnOrder}">
                                 <form:fields>
-                                    <Input value="{UnitsOnOrder}" width="100%" editable="{control>/Enabled}"/>
+                                    <Input value="{path: 'UnitsOnOrder', type: 'sap.ui.model.type.Integer'}" width="100%" editable="{control>/Enabled}"/>
                                 </form:fields>
                             </form:FormElement>
                             <form:FormElement label="{i18n>lblReorderLevel}">
                                 <form:fields>
-                                    <Input value="{ReorderLevel}" width="100%" editable="{control>/Enabled}"/>
+                                    <Input value="{path: 'ReorderLevel', type: 'sap.ui.model.type.Integer'}" width="100%" editable="{control>/Enabled}"/>
                                 </form:fields>
                             </form:FormElement>
                             <form:FormElement label="{i18n>lblDiscontinued}">

@@ -19,7 +19,7 @@ modules:
         name: dexco-ui5products-uaa-key
   parameters:
     content:
-      instance:
+      subaccount:
         destinations:
         - Name: dexco-ui5products_repo_host
           ServiceInstanceName: dexco-ui5products-html5-srv

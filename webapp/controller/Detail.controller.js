@@ -6,12 +6,13 @@ sap.ui.define([
     'sap/m/MessageItem',
     'sap/ui/core/message/Message',
     'sap/ui/core/library',
-    'sap/ui/core/Element'
+    'sap/ui/core/Element',
+    "dexco/ui5products/model/models"
 ],
 	/**
 	 * @param {typeof sap.ui.core.mvc.Controller} Controller
 	 */
-    function (BaseController, MessageBox, Core, MessagePopover, MessageItem, Message, library, Element) {
+    function (BaseController, MessageBox, Core, MessagePopover, MessageItem, Message, library, Element, models) {
         "use strict";
 
         var MessageType = library.MessageType;
@@ -238,8 +239,31 @@ sap.ui.define([
                 oModel.setData(oData);
             },
 
-            onSave: function (oEvent) {
+            getModulePath: function () {
+                var appId = this.getOwnerComponent().getManifestEntry("/sap.app/id");
+                var appPath = appId.replaceAll(".", "/");
+                return jQuery.sap.getModulePath(appPath);
+            },
 
+            onSave: function (oEvent) {
+                var sToken = models.fetchToken(this.getModulePath()),
+                    oObject = this.byId("pageDetail").getBindingContext().getObject();
+
+                if (sToken) {
+                    models.raiseWorkflow(this.getModulePath(), sToken, "dexco.productsworkflow", oObject)
+                        .then((oData) => {
+                            MessageBox.success(this.getText("txtNewWorkflow"), {
+                                onClose: () => {
+                                    this.getRouter().navTo("ToList");
+                                }
+                            });
+                        })
+                        .catch((sError) => {
+                            MessageBox.error(sError);
+                        });
+                } else {
+                    MessageBox.error(this.getText("txtTokenError"));
+                }
             },
 
             onCancel: function (oEvent) {
